@@ -18,10 +18,11 @@ UI. A larger clickable target is the point; this is not a cosmetic overlay.
 
 ## Important limitations
 
-**Prototype, NOT yet built against the current RuneLite dependency or tested
-in the game.** The code was checked against the published RuneLite source API
-for the named widgets and layout methods, but this environment could not
-retrieve Gradle dependencies or start a logged-in client.
+**Prototype: builds against the current RuneLite dependency, but has NOT been
+verified in a running, logged-in game client.** GitHub Actions successfully ran
+`./gradlew clean build` on 2026-11-20. This verifies Java compilation; it does
+not prove that the enlarged widget is clickable or that the implementation is
+compatible with live OSRS interfaces.
 
 In particular, the game's layout scripts may redraw children, resize the
 clickable target differently than expected, or clip parts of a larger orb.
@@ -53,10 +54,12 @@ before submission.
 
 1. Get preliminary confirmation from RuneLite maintainers that expanding
    these native hitboxes is acceptable.
-2. Upload the contents of this project (not only the ZIP) to a **public**
-   GitHub repository named `large-special-attack`.
-3. Have a reviewer/dev run tests and address issues before submitting.
-4. Fork `https://github.com/runelite/plugin-hub` and create a file
+2. The public source repository is already available at
+   https://github.com/soulstrike23/Spec-Att-button-resize .
+3. Have a trusted developer test the enlarged **clickable area** in a development
+   client and address any issues before submitting.
+4. Once functionality and compliance are verified, fork
+   `https://github.com/runelite/plugin-hub` and create a file
    `plugins/large-special-attack` containing the repository URL and the full
    40-character commit hash of your uploaded source. There is a template in
    `plugin-hub-submission/`.
