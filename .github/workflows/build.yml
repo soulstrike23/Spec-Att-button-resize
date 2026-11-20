@@ -1,0 +1,21 @@
+
+name: Build Large Special Attack
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Compile and test plugin
+        run: bash ./gradlew clean build --no-daemon
